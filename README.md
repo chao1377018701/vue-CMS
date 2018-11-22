@@ -1,4 +1,4 @@
-# vuetemplate
+# vue-CMS
 
 > A Vue.js project
 
