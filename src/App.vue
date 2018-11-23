@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <!-- 头部 -->
-    <mt-header fixed title="Vue CMS">
+    <mt-header fixed title="Vue CMS" class="mt-header">
      <!-- <router-link to="" slot="left"> -->
         <!-- <mt-button icon="back" @click="$router.back(-1)"></mt-button> --> 
       <!-- </router-link> -->
@@ -37,9 +37,17 @@
 </template>
 
 <script>
+//解决mui默认底部tabBar不能点击的问题
+// import mui from "../src/lib/mui/js/mui.min.js";
+// mui('body').on('tap','a',function(){
+//     window.top.location.href=this.href;
+// });
 </script>
 
 <style lang="less">
+.mt-header{
+  z-index: 999 !important;
+}
 .app-container {
   padding-top: 40px;
   padding-bottom: 50px;
