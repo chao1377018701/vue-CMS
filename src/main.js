@@ -14,13 +14,18 @@ Vue.use(VueResource)
 Vue.http.options.root='http://www.lovegf.cn:8899/'
 
 //按需导入mint-ui的组件
-import {Header,Swipe,SwipeItem,Button} from 'mint-ui'
-// 注册组件
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
+// import {Header,Swipe,SwipeItem,Button,Lazyload} from 'mint-ui'
+// // 注册组件
+// Vue.component(Header.name, Header)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
+// Vue.use(Lazyload);
 
+//全部引入,因为要用懒加载,按需引入不能实现
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
 
 // 导入mui的样式
 import './lib/mui/css/mui.css'
@@ -33,6 +38,13 @@ import './css/common.less'
 Vue.filter('dateFormat',function(dateStr,pattern='YYYY-MM-DD HH:mm:ss'){
   return moment(dateStr).format(pattern)
 })
+
+// 全局设置post时候表单数据格式组织形式 application/x-www-form-urlencoded
+Vue.http.options.emulateJSON = true;
+
+// 安装缩略图预览插件
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
 
 Vue.config.productionTip = false
 
